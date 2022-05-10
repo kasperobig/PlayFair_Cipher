@@ -25,3 +25,29 @@ def create_matrix(key):
             continue
         if chr(letter) not in letters_added:  # Do not add repeated letters
             letters_added.append(chr(letter))
+
+    #print (len(letters_added), letters_added)
+    index = 0
+    for i in range(5):
+        for j in range(5):
+            matrix[i][j] = letters_added[index]
+            index += 1
+    return matrix
+
+# Filter if the same letters is in a pair
+
+
+def separate_letters(message):
+    index = 0
+
+    while (index < len(message)):
+        l1 = message[index]
+        if index == len(message) - 1:
+            message = message + 'X'
+            index += 2
+            continue
+        l2 = message[index+1]
+        if l1 == l2:
+            message = message[:index+1] + "X" + message[index+1:]
+        index += 2
+    return message
