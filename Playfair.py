@@ -64,3 +64,13 @@ def locChar(letters):
 
 def encrypt():
     plaintext = str(input("Enter your plaintext: "))
+    plaintext = plaintext.upper()
+    plaintext = plaintext.replace(" ", " ")
+    i = 0
+    for s in range(0, len(plaintext) + 1, 2):
+        if s < len(plaintext) - 1:
+            if plaintext[s] == plaintext[s + 1]:
+                plaintext = plaintext[:s + 1] + "X" + plaintext[s + 1]
+    if len(plaintext) % 2 != 0:
+        plaintext = plaintext[:] + "X"
+    print("Cipher text:", end=" ")
