@@ -74,3 +74,41 @@ def encrypt():
     if len(plaintext) % 2 != 0:
         plaintext = plaintext[:] + "X"
     print("Cipher text:", end=" ")
+    while i < len(plaintext):
+        loc = list()
+        loc = locChar(plaintext[i])
+        loc1 = list()
+        loc1 = locChar(plaintext[i + 1])
+        if loc[1] == loc1[1]:
+            print("{}{}".format(
+                myMatrix[(loc[0]+1) % 5][loc[1]], myMatrix[(loc1[0]+1) % 5][loc1[1]]), end=' ')
+        elif loc[0] == loc1[0]:
+            print("{}{}".format(
+                myMatrix[loc[0]][(loc[1]+1) % 5], myMatrix[loc1[0]][(loc1[1]+1) % 5]), end=' ')
+        else:
+            print("{}{}".format(
+                myMatrix[loc[0]][loc1[1]], myMatrix[loc1[0]][loc[1]]), end=' ')
+        i = i+2
+
+
+def decrypt():  # decryption
+    plaintext = str(input("ENTER CIPHER TEXT:"))
+    plaintext = plaintext.upper()
+    plaintext = plaintext.replace(" ", "")
+    print("PLAIN TEXT:", end=' ')
+    i = 0
+    while i < len(plaintext):
+        loc = list()
+        loc = locChar(plaintext[i])
+        loc1 = list()
+        loc1 = locChar(plaintext[i+1])
+        if loc[1] == loc1[1]:
+            print("{}{}".format(
+                myMatrix[(loc[0]-1) % 5][loc[1]], myMatrix[(loc1[0]-1) % 5][loc1[1]]), end=' ')
+        elif loc[0] == loc1[0]:
+            print("{}{}".format(
+                myMatrix[loc[0]][(loc[1]-1) % 5], myMatrix[loc1[0]][(loc1[1]-1) % 5]), end=' ')
+        else:
+            print("{}{}".format(
+                myMatrix[loc[0]][loc1[1]], myMatrix[loc1[0]][loc[1]]), end=' ')
+        i = i+2
