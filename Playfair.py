@@ -1,4 +1,5 @@
 # Enter Key
+from email import message
 from unittest import result
 
 
@@ -63,22 +64,22 @@ def locChar(letters):
 
 
 def encrypt():
-    plaintext = str(input("Enter your plaintext: "))
-    plaintext = plaintext.upper()
-    plaintext = plaintext.replace(" ", " ")
+    message = str(input("Enter your message: "))
+    message = message.upper()
+    message = message.replace(" ", " ")
     i = 0
-    for s in range(0, len(plaintext) + 1, 2):
-        if s < len(plaintext) - 1:
-            if plaintext[s] == plaintext[s + 1]:
-                plaintext = plaintext[:s + 1] + "X" + plaintext[s + 1]
-    if len(plaintext) % 2 != 0:
-        plaintext = plaintext[:] + "X"
+    for s in range(0, len(message) + 1, 2):
+        if s < len(message) - 1:
+            if message[s] == message[s + 1]:
+                message = message[:s + 1] + "X" + message[s + 1]
+    if len(message) % 2 != 0:
+        message = message[:] + "X"
     print("Cipher text:", end=" ")
-    while i < len(plaintext):
+    while i < len(message):
         loc = list()
-        loc = locChar(plaintext[i])
+        loc = locChar(message[i])
         loc1 = list()
-        loc1 = locChar(plaintext[i + 1])
+        loc1 = locChar(message[i + 1])
         if loc[1] == loc1[1]:
             print("{}{}".format(
                 myMatrix[(loc[0]+1) % 5][loc[1]], myMatrix[(loc1[0]+1) % 5][loc1[1]]), end=' ')
@@ -94,16 +95,16 @@ def encrypt():
 
 
 def decrypt():
-    plaintext = str(input("ENTER CIPHER TEXT:"))
-    plaintext = plaintext.upper()
-    plaintext = plaintext.replace(" ", "")
-    print("PLAIN TEXT:", end=' ')
+    message = str(input("Enter Cipher text:"))
+    message = message.upper()
+    message = message.replace(" ", "")
+    print("plain text:", end=' ')
     i = 0
-    while i < len(plaintext):
+    while i < len(message):
         loc = list()
-        loc = locChar(plaintext[i])
+        loc = locChar(message[i])
         loc1 = list()
-        loc1 = locChar(plaintext[i+1])
+        loc1 = locChar(message[i+1])
         if loc[1] == loc1[1]:
             print("{}{}".format(
                 myMatrix[(loc[0]-1) % 5][loc[1]], myMatrix[(loc1[0]-1) % 5][loc1[1]]), end=' ')
