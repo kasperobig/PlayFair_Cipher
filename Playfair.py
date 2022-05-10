@@ -17,3 +17,11 @@ def create_matrix(key):
             row += 1
         else:
             col += 1
+
+    # Add the rest of the alphabet to the matrix
+    # A = 685   Z=90
+    for letter in range(65, 91):
+        if letter == 74:  # I/J are in the same position
+            continue
+        if chr(letter) not in letters_added:  # Do not add repeated letters
+            letters_added.append(chr(letter))
