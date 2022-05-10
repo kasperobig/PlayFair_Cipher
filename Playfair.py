@@ -90,8 +90,10 @@ def encrypt():
                 myMatrix[loc[0]][loc1[1]], myMatrix[loc1[0]][loc[1]]), end=' ')
         i = i+2
 
+# decryption
 
-def decrypt():  # decryption
+
+def decrypt():
     plaintext = str(input("ENTER CIPHER TEXT:"))
     plaintext = plaintext.upper()
     plaintext = plaintext.replace(" ", "")
