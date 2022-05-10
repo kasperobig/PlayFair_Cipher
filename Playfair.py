@@ -115,3 +115,15 @@ def decrypt():
             print("{}{}".format(
                 myMatrix[loc[0]][loc1[1]], myMatrix[loc1[0]][loc[1]]), end=' ')
         i = i+2
+
+
+while(1):
+    choice = int(input("\n 1.Encryption \n 2.Decryption: \n 3.Exit"))
+    if choice == 1:
+        encrypt()
+    elif choice == 2:
+        decrypt()
+    elif choice == 3:
+        exit()
+    else:
+        print("Choose correct choice")
