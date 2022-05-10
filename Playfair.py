@@ -36,5 +36,11 @@ for i in range(65, 91):
         else:
             result.append(chr(i))
 
-# In
+# Initialize the matrix
 m = 0
+myMatrix = matrix(5, 5, 0)
+# Making matrix
+for i in range(0, 5):
+    for j in range(0, 5):
+        myMatrix[i][j] = result[m]
+        m += 1
