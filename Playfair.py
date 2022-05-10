@@ -44,3 +44,23 @@ for i in range(0, 5):
     for j in range(0, 5):
         myMatrix[i][j] = result[m]
         m += 1
+
+# get location for each characters
+
+
+def locChar(letters):
+    loc = list()
+    if letters == "J":
+        letters = "I"
+    for i, j in enumerate(myMatrix):
+        for k, l in enumerate(j):
+            if letters == l:
+                loc.append(i)
+                loc.append(k)
+                return loc
+
+# Encryption
+
+
+def encrypt():
+    plaintext = str(input("Enter your plaintext: "))
