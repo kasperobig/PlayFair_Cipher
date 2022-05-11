@@ -94,3 +94,33 @@ class Playfair:
             x1 = pos1 % 5
             y2 = pos2 / 5
             x2 = pos2 % 5
+            if y1 == y2:
+                if x1 == 4:
+                    x1 = 0
+                else:
+                    x1 += 1
+                if x2 == 4:
+                    x2 = 0
+                else:
+                    x2 += 1
+                z1 = y1 * 5 + x1
+                z2 = y2 * 5 + x2
+            else:
+                if x1 == x2:
+                    if y1 == 4:
+                        y1 = 0
+                    else:
+                        y1 += 1
+                    if y2 == 4:
+                        y2 = 0
+                    else:
+                        y2 += 1
+                    z1 = y1 * 5 + x1
+                    z2 = y2 * 5 + x2
+                else:
+                    z1 = 5 * y1 + x2
+                    z2 = 5 * y2 + x1
+            outputText = outputText + \
+                self.condingAlphabet[z1]+self.condingAlphabet[z2]
+            self.globall = outputText
+        return "global:" + self.globall
