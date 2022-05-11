@@ -80,3 +80,17 @@ class Playfair:
                 text3 = text3 + text[e]
         self.condingAlphabet = text3
         print(text3)
+
+    def code(self):
+        #codingtext = self.textformation.text2
+        outputText = ''
+        final = ''
+        while len(self.codeText) != 0:
+            firstboth = self.codeText[0:2]
+            pos1 = self.condingAlphabet.find(firstboth[0])
+            pos2 = self.condingAlphabet.find(firstboth[1])
+            self.codeText = self.codeText[2:]
+            y1 = pos1 / 5
+            x1 = pos1 % 5
+            y2 = pos2 / 5
+            x2 = pos2 % 5
