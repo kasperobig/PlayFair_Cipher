@@ -52,3 +52,31 @@ class Playfair:
         keyalphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'
         # extended with the reason see below
         b += keyalphabet
+        for i in range(len(b)):
+            if b[i] == 'Ä':
+                text = text + 'AE'
+            elif b[i] == 'Ö':
+                text = text + 'OE'
+            elif b[i] == 'Ü':
+                text = text + 'UE'
+            elif b[i] == 'ß':
+                text = text + 'SZ'
+            elif b[i] == '"':
+                text = text + ''
+            elif b[i] == "'":
+                text = text + ''
+            elif b[i] == ".":
+                text = text + ''
+            elif b[i] == " ":
+                text = text + ''
+            elif b[i] == "J":
+                text = text + 'I'
+            else:
+                text = text + b[i]
+        text3 = ''
+        keytextneu = ''
+        for e in range(len(text)):
+            if text3.find(text[e]) == -1:
+                text3 = text3 + text[e]
+        self.condingAlphabet = text3
+        print(text3)
