@@ -18,8 +18,22 @@ root.geometry("400x500")  # width x height
 root.resizable(width=FALSE, height=FALSE)
 
 # Creating a canvas
-canvas = tk.Canvas(root, height=500, width=400, bg="MediumPurple1")
+canvas = tk.Canvas(root, height=500, width=400, bg="#2196F3")
 # Attaching the canvas
 canvas.pack()
+
+# Set the family,size and style of the font
+bold_font = tkfont.Font(family="Helvetica", size=12, weight="bold")
+
+# Creating a label with a key and attaching it to the root
+label1 = tk.Label(root, text="Enter the Key", width=20, bg="#2196F3")
+# adding the font features to the label
+label1.config(font=bold_font)
+# placing the label in the canvas
+canvas.create_window(200, 100, window=label1)
+
+# Text Area
+user_text = tk.Entry(root)
+canvas.create_window(200, 150, window=user_text)
 
 root.mainloop()
