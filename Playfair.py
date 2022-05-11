@@ -7,7 +7,7 @@ class Playfair:
         condingAlphabet = ''
         self.globall = ''
 
-    def textformation(self):
+    def textFormation(self):
         a = str(self.plaintext)
         a = self.plaintext.upper()
         text = ''
@@ -44,3 +44,11 @@ class Playfair:
             text2 = text2 + "X"
         self.codeText = text2
         print(text2)
+
+    def Alphabet(self):
+        b = str(self.key)
+        b = self.key.upper()
+        text = ''
+        keyalphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'
+        # extended with the reason see below
+        b += keyalphabet
